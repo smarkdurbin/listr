@@ -1,0 +1,57 @@
+input.form-control, .btn, .btn-default,.btn-primary,.btn-success,.btn-info,.btn-warning,.btn-danger {
+/*    border-radius: 35px;*/
+}
+textarea.form-control {
+/*    border-radius: 10px;   */
+}
+textarea {
+    resize: vertical;   
+}
+.panel-group .list-group {
+	margin-bottom: 0;
+}
+
+.panel-group .list-group .list-group-item {
+	border-radius: 0;
+	border-left: none;
+	border-right: none;
+}
+
+.panel-group .list-group .list-group-item:last-child {
+	border-bottom: none;
+}
+.list-group + .panel-body {
+    background-color: #EEE;   
+    padding-bottom: 5px;
+}
+.list-group-item > .media-body {
+    padding: 6px 0px;
+}
+.list-group-item:first-child {
+    border-top: 0;
+}
+.panel-heading > span.badge {
+    opacity: 0.5;  
+}
+/* This parent can be any width and height */
+.block {
+  text-align: center;
+
+  /* May want to do this if there is risk the container may be narrower than the element inside */
+  white-space: nowrap;
+}
+ 
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can also be of any width and height */ 
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+}
