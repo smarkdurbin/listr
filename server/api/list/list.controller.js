@@ -57,7 +57,6 @@ exports.destroy = function(req, res) {
 
 exports.update = function(req, res) {    // DELETES THING FROM LIST
     if(req.body.thingId) {
-        console.log(req.body._id);
         // DELETES ITEM FROM LIST
         List.findById(req.params.id, function (err, list) {
             if (err) { return handleError(res, err); }
@@ -79,7 +78,6 @@ exports.update = function(req, res) {    // DELETES THING FROM LIST
         }); 
     // COMPLETES or UNCOMPLETES THING FROM LIST
     } else if (req.body._id) {
-        console.log('here');
         // ACTIVATES ITEM FROM LIST
         if (req.body.complete === false) {
             // console.log(req.params.id);
@@ -103,7 +101,6 @@ exports.update = function(req, res) {    // DELETES THING FROM LIST
             });
         // INACTIVATES ITEM FROM LIST
         } else if (req.body.complete === true) {
-            // console.log(req.params.id);
             List.findById(req.params.id, function (err, list) {
                 if (err) { return handleError(res, err); }
                 if(!list) { return res.send(404); }
@@ -113,7 +110,6 @@ exports.update = function(req, res) {    // DELETES THING FROM LIST
                 for(var i=0; i<arr.length; i++){
                     if(arr[i]._id == req.body._id){
                         arr[i].active = false;
-                        console.log(arr[i]);
                     }
                 }
 
@@ -126,7 +122,6 @@ exports.update = function(req, res) {    // DELETES THING FROM LIST
         }
     // ADDS THING TO LIST
     } else if (req.body.name) {
-        console.log(req.body);
         if(req.body._id) { delete req.body._id; }
         List.findById(req.params.id, function (err, list) {
             if (err) { return handleError(res, err); }
@@ -153,7 +148,7 @@ exports.update = function(req, res) {    // DELETES THING FROM LIST
             });
         });  
     } else if (req.body.user) {
-        
+        // Here we will put the 'like' functions
     }
 };
 

@@ -86,7 +86,6 @@ angular.module('listrApp')
         $scope.deleteList = function(listId) {
             if(listId) {
                 $http.delete('/api/lists/' + listId).success(function(){
-                    alert('done!');
                 });
             }
         };
