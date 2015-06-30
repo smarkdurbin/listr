@@ -8,10 +8,8 @@ angular.module('listrApp')
         $scope.user = [];
     
         if(Auth.isLoggedIn()){
-            console.log(Auth);
             $scope.user = Auth.getCurrentUser();
         }
-    
     
         $scope.getLists = function() {
             $http.get('/api/lists').success(function(lists) {
@@ -33,11 +31,10 @@ angular.module('listrApp')
         }
     
         $scope.createList = function() {
-            if($scope.newList === '') {
-                return
-            };
-            $http.post('/api/lists', { name: $scope.newList, owner: $scope.user._id }).success(function(){});
-            $scope.newList = '';
+            if($scope.newList) {
+                $http.post('/api/lists', { name: $scope.newList, owner: $scope.user._id }).success(function(){});
+                $scope.newList = '';
+            }
         };
     
         $scope.newThing = [];
@@ -69,18 +66,22 @@ angular.module('listrApp')
         }
         
         $scope.newDescription = [];
-        
-        $scope.addDescription = function(listId, idx) {
-            if($scope.newDescription[idx] != '' && $scope.newDescription[idx] != null) {
-                $http.put('/api/lists/' + listId, {description: $scope.newDescription[idx] }).success(function(){
-                    $scope.newDescription = [];
-                });
-            };
+    
+        $scope.addDescription = function(list) {
+            $http.put('/api/lists/' + list._id, {description: list.description}).success(function(){
+                list.editing = false;
+            });
         };
         
-        $scope.myFilter = function (item) { 
+        $scope.myFilter = function(item) { 
             //console.log(item.parent_id) 
             return item
+        };
+    
+        $scope.editDescription = function(list) {
+            if(!list.editing) {
+                list.editing = true;
+            }
         };
     
         $scope.deleteList = function(listId) {

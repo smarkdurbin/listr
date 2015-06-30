@@ -27,27 +27,32 @@
                                     {{ list.name }}
                                 </a>
                                 <a href="#" class=" pull-right" ng-click="deleteList(list._id)">
-                                    <span class="glyphicon glyphicon-remove"></span>
+                                    <span class="text-danger glyphicon glyphicon-remove"></span>
                                 </a>
                             </h4>
                             
                         </div>
                         <div id="{{ $index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ $index }}">
                             <div class="panel-body">
-                                <div class="form-group">
-                                    <textarea ng-model="newDescription[$index]" placeholder="Enter a description here." class="form-control" ng-show="!list.description"></textarea>
+<!--                                <div class="form-group">
+                                    <textarea ng-model="newDescription[$index]" placeholder="Enter a description here." class="form-control"></textarea>
+                                </div>-->
+                                <div class="form-group" ng-show="list.editing">
+                                    <textarea ng-model="list.description" placeholder="Enter a description here." class="form-control"></textarea>
                                 </div>
-                                <div class="form-group">
+<!--                                <div class="form-group">
                                     <a href="#" ng-show="newDescription[$index]" class="btn btn-block btn-primary" ng-click="addDescription(list._id, $index)">
                                         <span class="glyphicon glyphicon-save"></span>
                                     </a>
+                                </div>-->
+                                <div class="form-group" ng-show="list.editing && list.description">
+                                    <span class="btn btn-block btn-primary glyphicon glyphicon-save" ng-click="addDescription(list)"></span>
                                 </div>
-                                <p ng-show="list.description">
+                                <p ng-hide="list.editing">
+                                    <a href="#" ng-show="!list.description" ng-click="editDescription(list)">Add a description</a>
+                                    <span href="#" ng-hide="list.editing || !list.description" ng-click="editDescription(list)" class="btn btn-default pull-right glyphicon glyphicon-edit"></span>
                                     {{ list.description }}
                                 </p>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </a>
                                 <p>
                                     <span class="glyphicon glyphicon-time"></span>
                                     {{ list.created | timeAgo }}
