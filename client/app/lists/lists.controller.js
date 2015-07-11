@@ -7,7 +7,9 @@ angular.module('listrApp')
     
         $scope.user = [];
     
-        if(Auth.isLoggedIn()){
+        $scope.isLoggedIn = Auth.isLoggedIn;
+    
+        if($scope.isLoggedIn()){
             $scope.user = Auth.getCurrentUser();
         }
     

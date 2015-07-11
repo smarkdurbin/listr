@@ -12,6 +12,17 @@
         </div>
     </div>
 </div>
+<div class="container" ng-hide="myLists.length>0">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-warning" role="alert">
+                <p class="text-center">
+                    You haven't added any lists yet.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
@@ -30,21 +41,12 @@
                                     <span class="text-danger glyphicon glyphicon-remove"></span>
                                 </a>
                             </h4>
-                            
                         </div>
                         <div id="{{ $index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ $index }}">
                             <div class="panel-body">
-<!--                                <div class="form-group">
-                                    <textarea ng-model="newDescription[$index]" placeholder="Enter a description here." class="form-control"></textarea>
-                                </div>-->
                                 <div class="form-group" ng-show="list.editing">
                                     <textarea ng-model="list.description" placeholder="Enter a description here." class="form-control"></textarea>
                                 </div>
-<!--                                <div class="form-group">
-                                    <a href="#" ng-show="newDescription[$index]" class="btn btn-block btn-primary" ng-click="addDescription(list._id, $index)">
-                                        <span class="glyphicon glyphicon-save"></span>
-                                    </a>
-                                </div>-->
                                 <div class="form-group" ng-show="list.editing && list.description">
                                     <span class="btn btn-block btn-primary glyphicon glyphicon-save" ng-click="addDescription(list)"></span>
                                 </div>

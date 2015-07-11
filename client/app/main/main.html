@@ -1,2 +1,40 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
+<div class="container vcenter_container" ng-hide="isLoggedIn()">
+    <div class="row vcenter">
+        <div class="col-md-12 text-center">
+            <h2>Welcome to listr</h2>
+            <p class="lead">
+                A socket-based web application for managing tasks.
+                <br>
+                View the repository at <a href="https://github.com/smarkdurbin/listr">https://github.com/smarkdurbin/listr</a>
+            </p>
+            <a href="/signup" class="btn btn-lg btn-default" type="button">Sign Up</a>
+            <a href="/login" class="btn btn-lg btn-default" type="button">Login</a>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container vcenter_container" ng-show="isLoggedIn()">
+    <div class="row vcenter">
+        <div class="col-md-12 text-center">
+            <p class=" lead">
+                Welcome to listr.
+            </p>
+            <a href="/lists" class="btn btn-lg btn-default" type="button">Make a list</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                      Developed by <a href="mailto:s@markdurb.in">Steven Durbin</a><br>Uses <a href="https://github.com/DaftMonk/generator-angular-fullstack">Yeoman angular-fullstack generator</a>
+                  </p>
+            </div>
+        </div>
+    </div>
+</footer>

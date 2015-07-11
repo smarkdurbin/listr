@@ -90,7 +90,6 @@ exports.update = function(req, res) {    // DELETES THING FROM LIST
                 for(var i=0; i<arr.length; i++){
                     if(arr[i]._id == req.body._id){
                         arr[i].active = true;
-                        console.log(arr[i]);
                     }
                 }
 
