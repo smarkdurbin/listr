@@ -2,6 +2,9 @@
 
 Listr is a MEAN stack list-making application for the Web.
 
+This was built using yo-angular-fullstack
+
+To launch, clone this repo and use the command: grunt serve
 
 Features:
 * Create lists
